@@ -57,7 +57,7 @@
 
         function ChatMessages(){
 
-         const array = React.useState([{
+         const [chatMessages, setChatMessages] = React.useState([{
             message: 'hello chatbot',
             sender: 'user',
             id : 'id1'
@@ -77,16 +77,17 @@
           
           );
           
-          const chatMessages = array[0];
-          const setChatMessages =array[1];
+          //const [chatMessages, setChatMessages] =array; //array destructuring
+          //const chatMessages = array[0];
+          //const setChatMessages =array[1];
 
           function sendMessage(){
-           setChatMessages([
-           ...chatMessages,
-           {
-            message: 'test',
-            sender: 'user',
-            id: crypto.randomUUID()
+              setChatMessages([
+              ...chatMessages,
+              {
+                message: 'test',
+                sender: 'user',
+                id: crypto.randomUUID()
            }
            ]);
           }
