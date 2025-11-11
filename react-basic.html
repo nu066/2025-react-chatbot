@@ -56,35 +56,36 @@
         }
 
         function App() {
+          const chatMessages= [{
+            message: 'hello chatbot',
+            sender: 'user'
+          },
+          {
+            message: 'hello how can i help',
+            sender: 'robot'
+          },
+          {
+            message:'Hello chatbot2', 
+            sender:'user'
+
+          }
+          ];
+
+         const chatMessagesComponents =  chatMessages.map((chatMessage) => {
+            return (
+              <ChatMessage
+                message= {chatMessage.message}
+                sender = {chatMessage.sender}
+              />
+            );
+
+          });
+
           return (
             <>
                   <ChatInput /> 
-                  <ChatMessage 
-                    message="Hello chatbot" 
-                    sender="user"
-                  />
-                  <ChatMessage 
-                    message="Hello how can I help" 
-                    sender="robot"
-                  />
-                  <ChatMessage 
-                    message="Hello chatbot2" 
-                    sender="user"
-                  />
-                  <ChatMessage 
-                    message="Hello how can I help2" 
-                    sender="robot"
-                  />
-                  <ChatMessage 
-                    message="Hello chatbot3" 
-                    sender="user"
-                  />
-                  <ChatMessage 
-                    message="Hello how can I help3" 
-                    sender="robot"
-                  />
+                  {chatMessagesComponents}
             </>
-
           );
         }
 
